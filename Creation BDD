@@ -1,0 +1,93 @@
+create database project;
+
+create table weapons(
+weapon_id int(6) auto_increment primary key,
+weapon_name varchar(30) not null,
+weapon_image_path varchar(50) not null,
+stats varchar(25));
+
+create table race(
+race_id varchar(10) primary key,
+hit_points int(3) not null,
+strength int(2) not null,
+defense int(2) not null,
+dextery int(2) not null,
+speed int(2) not null
+);
+
+create table warriors(
+warrior_id int(6) auto_increment primary key,
+warrior_name varchar(30) not null,
+warrior_image_path varchar(50) not null,
+race varchar(10) not null,
+foreign key (race)
+	references race(race_id)
+);
+
+create table players(
+player_id int(6) auto_increment primary key,
+player_name varchar(30) not null);
+
+create table battle(
+battle_id int(9) auto_increment primary key,
+player_id int(6) not null,
+warrior_id int(6) not null,
+warrior_weapon_id int(6) not null,
+oponent_id int(6) not null,
+oponent_weapon_id int(6) not null,
+injuries_caused int(10) not null,
+injuries_suffered int(10) not null,
+battle_points int (12) not null
+);
+
+insert into race
+values("Dwarf",60,6,4,5,3);
+
+insert into race
+values("Human",50,5,3,6,5);
+
+insert into race
+values("Elf",40,4,2,7,7);
+
+insert into weapons(weapon_name,weapon_image_path,stats)
+values("Dagger","/media/alumlocal/Adrián Gómez 2/AWS_1/ProyectoFinal/Imagenes/Weapons/Dagger.jpg","+3 speed");
+
+insert into weapons(weapon_name,weapon_image_path,stats)
+values("Sword","/media/alumlocal/Adrián Gómez 2/AWS_1/ProyectoFinal/Imagenes/Weapons/Sword.png","+1 speed, +1 strength");
+
+insert into weapons(weapon_name,weapon_image_path,stats)
+values("Axe","/media/alumlocal/Adrián Gómez 2/AWS_1/ProyectoFinal/Imagenes/Weapons/Axe.jpg","+3 strength");
+
+insert into weapons(weapon_name,weapon_image_path,stats)
+values("Double Sword","/media/alumlocal/Adrián Gómez 2/AWS_1/ProyectoFinal/Imagenes/Weapons/DoubleSword.jpg","+2 speed, +2 strength");
+
+insert into weapons(weapon_name,weapon_image_path,stats)
+values("Simitar","/media/alumlocal/Adrián Gómez 2/AWS_1/ProyectoFinal/Imagenes/Weapons/Simitar.jpg","+2 speed, +1 strength");
+
+insert into weapons(weapon_name,weapon_image_path,stats)
+values("Bow","/media/alumlocal/Adrián Gómez 2/AWS_1/ProyectoFinal/Imagenes/Weapons/Bow.jpg","+5 speed, +1 strength");
+
+insert into weapons(weapon_name,weapon_image_path,stats)
+values("Double Dagger","/media/alumlocal/Adrián Gómez 2/AWS_1/ProyectoFinal/Imagenes/Weapons/DoubleDagger.png","+4 speed");
+
+insert into weapons(weapon_name,weapon_image_path,stats)
+values("Double Axe","/media/alumlocal/Adrián Gómez 2/AWS_1/ProyectoFinal/Imagenes/Weapons/DoubleAxe","+5 strength");
+
+
+insert into warriors(warrior_name,warrior_image_path,race)
+values("Thrall","ruta de la imagen","Human");
+
+insert into warriors(warrior_name,warrior_image_path,race)
+values("Pepe","ruta de la imagen","Human");
+
+insert into warriors(warrior_name,warrior_image_path,race)
+values("Sylvanas","ruta de la imagen","Elf");
+
+insert into warriors(warrior_name,warrior_image_path,race)
+values("Paco","ruta de la imagen","Elf");
+
+insert into warriors(warrior_name,warrior_image_path,race)
+values("Thrall","ruta de la imagen","Dwarf");
+
+insert into warriors(warrior_name,warrior_image_path,race)
+values("Thrall","ruta de la imagen","Dwarf");
